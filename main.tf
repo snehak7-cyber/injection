@@ -2,10 +2,6 @@ data "external" "test" {
   program = [
     "sh",
     "-c",
-    "echo '{\"result\":\"command-executed\"}'"
+    "command -v curl >/dev/null && echo '{\"result\":\"curl-present\"}' || echo '{\"result\":\"curl-missing\"}'"
   ]
-}
-
-output "external_result" {
-  value = data.external.test.result
 }
