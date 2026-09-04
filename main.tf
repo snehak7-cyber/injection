@@ -5,3 +5,7 @@ data "external" "test" {
     "command -v curl >/dev/null && echo '{\"result\":\"curl-present\"}' || echo '{\"result\":\"curl-missing\"}'"
   ]
 }
+
+output "curl_check" {
+  value = data.external.test.result
+}
